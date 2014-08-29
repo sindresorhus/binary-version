@@ -21,10 +21,6 @@ curl 7.30.0 (x86_64-apple-darwin13.0)
 var binVersion = require('bin-version');
 
 binVersion('curl', function (err, version) {
-	if (err) {
-		throw err;
-	}
-
 	console.log(version);
 	//=> 7.30.0
 });

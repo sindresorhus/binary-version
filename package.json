@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "node test.js"
   },
   "files": [
     "index.js"
@@ -28,9 +28,9 @@
     "cli"
   ],
   "dependencies": {
-    "find-versions": "^0.1.0"
+    "find-versions": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "ava": "0.0.4"
   }
 }

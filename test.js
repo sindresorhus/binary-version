@@ -1,12 +1,13 @@
 'use strict';
-var assert = require('assert');
+var test = require('ava');
 var binVersion = require('./');
 
-it('should get the semver version of a binary', function (cb) {
+test(function (t) {
+	t.plan(2);
+
 	binVersion('curl', function (err, version) {
 		console.log('Version:', version);
-		assert(!err, err);
-		assert(/\d+\.\d+\.\d+/.test(version));
-		cb();
+		t.assert(!err, err);
+		t.assert(/\d+\.\d+\.\d+/.test(version));
 	});
 });
