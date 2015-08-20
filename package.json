@@ -1,6 +1,6 @@
 {
   "name": "bin-version",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get the version of a binary in semver format",
   "license": "MIT",
   "repository": "sindresorhus/bin-version",
