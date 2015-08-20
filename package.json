@@ -28,6 +28,7 @@
     "cli"
   ],
   "dependencies": {
+    "buffered-spawn": "^1.1.2",
     "find-versions": "^1.0.0"
   },
   "devDependencies": {
