@@ -5,24 +5,24 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save bin-version
 ```
 
 
 ## Usage
 
-```sh
+```
 $ curl --version
 curl 7.30.0 (x86_64-apple-darwin13.0)
 ```
 
 ```js
-var binVersion = require('bin-version');
+const binVersion = require('bin-version');
 
-binVersion('curl', function (err, version) {
+binVersion('curl', (err, version) => {
 	console.log(version);
-	//=> 7.30.0
+	//=> '7.30.0'
 });
 ```
 
