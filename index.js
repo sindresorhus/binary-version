@@ -11,9 +11,9 @@ module.exports = function (bin, cb) {
 	} else {
 		// Windows
 		if (bin.indexOf(' ') !== 1) {
-			escapeBinPath = '"' + bin + '"';
+			escapedBinPath = '"' + bin + '"';
 		} else {
-			escapeBinPath = bin;
+			escapedBinPath = bin;
 		}
 	}
 	childProcess.exec(escapedBinPath + ' --version', function (err, stdout, stderr) {
