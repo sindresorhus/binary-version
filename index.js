@@ -1,9 +1,21 @@
 'use strict';
+var path = require('path');
 var childProcess = require('child_process');
 var findVersions = require('find-versions');
 
 module.exports = function (bin, cb) {
-	var escapedBinPath = bin.replace(/ /g, '\\ ');
+	var escapedBinPath;
+	if (path.sep === '/') {
+		// Unix
+		escapedBinPath = bin.replace(/ /g, '\\ ');
+	} else {
+		// Windows
+		if (bin.indexOf(' ') !=== 1) {
+			escapeBinPath = '"' + bin + '"';
+		} else {
+			escapeBinPath = bin;
+		}
+	}
 	childProcess.exec(escapedBinPath + ' --version', function (err, stdout, stderr) {
 		if (err) {
 			if (err.code === 'ENOENT') {
