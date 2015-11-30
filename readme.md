@@ -26,6 +26,17 @@ binVersion('curl', (err, version) => {
 });
 ```
 
+```
+$ openssl version
+OpenSSL 1.0.2d 9 Jul 2015
+```
+
+```js
+binVersion('openssl', {args: ['version']}, (err, version) => {
+	console.log(version);
+	//=> '1.0.2'
+});
+```
 
 ## CLI
 
