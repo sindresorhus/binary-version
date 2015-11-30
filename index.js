@@ -10,7 +10,7 @@ module.exports = function (bin, cb) {
 		escapedBinPath = bin.replace(/ /g, '\\ ');
 	} else {
 		// Windows
-		if (bin.indexOf(' ') !=== 1) {
+		if (bin.indexOf(' ') !== 1) {
 			escapeBinPath = '"' + bin + '"';
 		} else {
 			escapeBinPath = bin;
