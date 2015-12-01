@@ -16,3 +16,11 @@ test.cb('npm', t => {
 		t.end();
 	});
 });
+
+test.cb('php', t => {
+	fn('./fixture/php.js', (err, version) => {
+		t.ifError(err);
+		t.is(version, '7.0.0');
+		t.end();
+	});
+});
