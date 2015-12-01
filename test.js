@@ -1,21 +1,18 @@
-'use strict';
-var test = require('ava');
-var binVersion = require('./');
+import test from 'ava';
+import fn from './';
 
-test('curl', function (t) {
-	t.plan(2);
-
-	binVersion('curl', function (err, version) {
-		t.assert(!err, err);
-		t.assert(/\d+\.\d+\.\d+/.test(version), version);
+test.cb('curl', t => {
+	fn('curl', (err, version) => {
+		t.ifError(err);
+		t.true(/\d+\.\d+\.\d+/.test(version), version);
+		t.end();
 	});
 });
 
-test('npm', function (t) {
-	t.plan(2);
-
-	binVersion('npm', function (err, version) {
-		t.assert(!err, err);
-		t.assert(/\d+\.\d+\.\d+/.test(version), version);
+test.cb('npm', t => {
+	fn('npm', (err, version) => {
+		t.ifError(err);
+		t.true(/\d+\.\d+\.\d+/.test(version), version);
+		t.end();
 	});
 });
