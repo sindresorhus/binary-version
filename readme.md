@@ -20,7 +20,7 @@ curl 7.30.0 (x86_64-apple-darwin13.0)
 ```js
 const binVersion = require('bin-version');
 
-binVersion('curl', (err, version) => {
+binVersion('curl').then(version => {
 	console.log(version);
 	//=> '7.30.0'
 });
@@ -32,11 +32,12 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 ```js
-binVersion('openssl', {args: ['version']}, (err, version) => {
+binVersion('openssl', {args: ['version']}).then(version => {
 	console.log(version);
 	//=> '1.0.2'
 });
 ```
+
 
 ## CLI
 

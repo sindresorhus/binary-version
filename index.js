@@ -1,25 +1,17 @@
 'use strict';
-var childProcess = require('child_process');
-var findVersions = require('find-versions');
+const execa = require('execa');
+const findVersions = require('find-versions');
 
-module.exports = function (bin, optionsOrCallback, cb) {
-	var args = ['--version'];
+module.exports = (bin, opts) => {
+	opts = opts || {};
 
-	if (arguments.length > 2) {
-		args = optionsOrCallback.args;
-	} else {
-		cb = optionsOrCallback;
-	}
-
-	childProcess.exec(bin + ' ' + args.join(' '), function (err, stdout, stderr) {
-		if (err) {
+	return execa(bin, opts.args || ['--version'])
+		.then(result => findVersions(result.stdout || result.stderr, {loose: true})[0])
+		.catch(err => {
 			if (err.code === 'ENOENT') {
-				err.message = 'Couldn\'t find the `' + bin + '` binary. Make sure it\'s installed and in your $PATH';
+				err.message = `Couldn't find the '${bin}' binary. Make sure it's installed and in your $PATH`;
 			}
 
-			return cb(err);
-		}
-
-		cb(null, findVersions(stdout.trim() || stderr.trim(), {loose: true})[0]);
-	});
+			throw err;
+		});
 };
