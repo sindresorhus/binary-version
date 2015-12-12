@@ -41,7 +41,7 @@ binVersion('openssl', {args: ['version']}).then(version => {
 
 ## CLI
 
-See the [find-versions](https://github.com/sindresorhus/find-versions#cli) CLI.
+See [find-versions-cli](https://github.com/sindresorhus/find-versions-cli).
 
 
 ## License
