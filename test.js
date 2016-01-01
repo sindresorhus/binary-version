@@ -4,7 +4,7 @@ import fn from './';
 const reVersion = /\d+\.\d+\.\d+/;
 
 test('does-not-exist', async t => {
-	await t.throws(fn('does-not-exist'), /Couldn't find/);
+	t.throws(fn('does-not-exist'), /Couldn't find/);
 });
 
 test('curl', async t => {
