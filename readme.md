@@ -1,6 +1,6 @@
 # bin-version [![Build Status](https://travis-ci.org/sindresorhus/bin-version.svg?branch=master)](https://travis-ci.org/sindresorhus/bin-version)
 
-> Get the version of a binary in [semver](https://github.com/isaacs/node-semver) format
+> Get the version of a binary in [semver](https://github.com/npm/node-semver) format
 
 
 ## Install
@@ -41,9 +41,9 @@ binVersion('openssl', {args: ['version']}).then(version => {
 
 ## CLI
 
-See [find-versions-cli](https://github.com/sindresorhus/find-versions-cli).
+See [`find-versions-cli`](https://github.com/sindresorhus/find-versions-cli).
 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
