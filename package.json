@@ -28,7 +28,7 @@
     "cli"
   ],
   "dependencies": {
-    "execa": "^0.1.1",
+    "execa": "^0.6.3",
     "find-versions": "^2.0.0"
   },
   "devDependencies": {
