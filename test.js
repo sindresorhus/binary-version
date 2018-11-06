@@ -1,24 +1,24 @@
 import test from 'ava';
-import m from '.';
+import binVersion from '.';
 
 const reVersion = /\d+\.\d+\.\d+/;
 
 test('does-not-exist', async t => {
-	await t.throws(m('does-not-exist'), /Couldn't find/);
+	await t.throwsAsync(binVersion('does-not-exist'), /Couldn't find/);
 });
 
 test('curl', async t => {
-	t.true(reVersion.test(await m('curl')));
+	t.regex(await binVersion('curl'), reVersion);
 });
 
 test('npm', async t => {
-	t.true(reVersion.test(await m('npm')));
+	t.regex(await binVersion('npm'), reVersion);
 });
 
 test('openssl', async t => {
-	t.true(reVersion.test(await m('openssl', {args: ['version']})));
+	t.regex(await binVersion('openssl', {args: ['version']}), reVersion);
 });
 
 test('php', async t => {
-	t.is(await m('./fixture/php.js'), '7.0.0');
+	t.is(await binVersion('./fixture/php.js'), '7.0.0');
 });

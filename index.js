@@ -2,16 +2,14 @@
 const execa = require('execa');
 const findVersions = require('find-versions');
 
-module.exports = (bin, opts) => {
-	opts = opts || {};
-
-	return execa(bin, opts.args || ['--version'])
+module.exports = (binary, options = {}) => {
+	return execa(binary, options.args || ['--version'])
 		.then(result => findVersions(result.stdout || result.stderr, {loose: true})[0])
-		.catch(err => {
-			if (err.code === 'ENOENT') {
-				err.message = `Couldn't find the '${bin}' binary. Make sure it's installed and in your $PATH`;
+		.catch(error => {
+			if (error.code === 'ENOENT') {
+				error.message = `Couldn't find the \`${binary}\` binary. Make sure it's installed and in your $PATH`;
 			}
 
-			throw err;
+			throw error;
 		});
 };
