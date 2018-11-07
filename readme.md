@@ -39,9 +39,10 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 
-## CLI
+## Related
 
-See [`find-versions-cli`](https://github.com/sindresorhus/find-versions-cli).
+- [bin-version-cli](https://github.com/sindresorhus/bin-version-cli) - CLI for this module
+- [find-versions](https://github.com/sindresorhus/find-versions) - Find semver versions in a string
 
 
 ## License
