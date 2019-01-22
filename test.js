@@ -22,3 +22,7 @@ test('openssl', async t => {
 test('php', async t => {
 	t.is(await binVersion('./fixture/php.js'), '7.0.0');
 });
+
+test('sub-command', async t => {
+	t.is(await binVersion('./fixture/sub-command.js'), '0.0.0');
+});
