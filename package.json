@@ -29,7 +29,8 @@
 	],
 	"dependencies": {
 		"execa": "^1.0.0",
-		"find-versions": "^3.0.0"
+		"find-versions": "^3.0.0",
+		"p-locate": "^3.0.0"
 	},
 	"devDependencies": {
 		"ava": "^1.0.0-rc.1",
