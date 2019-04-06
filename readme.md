@@ -38,6 +38,28 @@ OpenSSL 1.0.2d 9 Jul 2015
 })();
 ```
 
+## API
+
+### binVersion(binary, [options])
+
+Returns a `Promise<string>` with the version of the `binary`.
+
+#### binary
+
+Type: `string`
+
+The name of or path to the binary to get the version from.
+
+#### options
+
+Type: `object`
+
+##### args
+
+Type: `string[]`
+Default: `['--version']`
+
+The arguments to pass to `binary` so that it will print its version.
 
 ## Related
 

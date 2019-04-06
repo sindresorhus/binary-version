@@ -7,7 +7,7 @@ module.exports = (binary, options = {}) => {
 		.then(result => findVersions(result.stdout || result.stderr, {loose: true})[0])
 		.catch(error => {
 			if (error.code === 'ENOENT') {
-				error.message = `Couldn't find the \`${binary}\` binary. Make sure it's installed and in your $PATH`;
+				error.message = `Couldn't find the \`${binary}\` binary. Make sure it's installed and in your $PATH.`;
 			}
 
 			throw error;
