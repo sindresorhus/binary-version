@@ -5,7 +5,7 @@ declare namespace binVersion {
 
 		@default ['--version']
 		*/
-		args?: string[];
+		readonly args?: readonly string[];
 	}
 }
 
