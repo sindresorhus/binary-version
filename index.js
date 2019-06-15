@@ -2,20 +2,10 @@
 const execa = require('execa');
 const findVersions = require('find-versions');
 
-const knownBinaryArgs = new Map([
+const knownBinaryArguments = new Map([
 	...['ffmpeg', 'ffprobe', 'ffplay'].map(name => [name, ['-version']]),
-	['openssl', ['version']],
+	['openssl', ['version']]
 ]);
-
-const getKnownBinaryArgs = binary => {
-	let args = knownBinaryArgs.get(binary);
-	if (args !== undefined) {
-		return args;
-	}
-
-	args = knownBinaryArgs.get(binary.trim());
-	return args;
-};
 
 const defaultPossibleArgs = [
 	['--version'],
@@ -26,7 +16,7 @@ module.exports = async (binary, options = {}) => {
 	let possibleArgs;
 
 	if (options.args === undefined) {
-		const customArgs = getKnownBinaryArgs(binary);
+		const customArgs = knownBinaryArguments.get(binary);
 		if (customArgs === undefined) {
 			possibleArgs = defaultPossibleArgs;
 		} else {
@@ -38,6 +28,7 @@ module.exports = async (binary, options = {}) => {
 
 	for (const args of possibleArgs) {
 		try {
+			// TODO use execa.all when execa v2 is out
 			const {stdout, stderr} = await execa(binary, args); // eslint-disable-line no-await-in-loop
 			const [version] = findVersions(stdout || stderr, {loose: true});
 			if (version !== undefined) {
