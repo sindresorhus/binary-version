@@ -32,6 +32,8 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 ```js
+const binVersion = require('bin-version');
+
 (async () => {
 	console.log(await binVersion('openssl'));
 	//=> '1.0.2'
@@ -44,15 +46,18 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 ```js
+const binVersion = require('bin-version');
+
 (async () => {
 	console.log(await binVersion('openssl', {args: ['version']}));
 	//=> '1.0.2'
 })();
 ```
 
+
 ## API
 
-### binVersion(binary, [options])
+### binVersion(binary, options?)
 
 Returns a `Promise<string>` with the version of the `binary`.
 
@@ -74,12 +79,8 @@ The arguments to pass to `binary` so that it will print its version.
 
 If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
 
+
 ## Related
 
 - [bin-version-cli](https://github.com/sindresorhus/bin-version-cli) - CLI for this module
 - [find-versions](https://github.com/sindresorhus/find-versions) - Find semver versions in a string
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

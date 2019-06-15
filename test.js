@@ -1,7 +1,7 @@
 import test from 'ava';
 import binVersion from '.';
 
-const reVersion = /\d+\.\d+\.\d+/;
+const versionRegex = /\d+\.\d+\.\d+/;
 
 test('does-not-exist', async t => {
 	await t.throwsAsync(binVersion('does-not-exist'), /Couldn't find/);
@@ -24,19 +24,19 @@ test('anything accepting `version`', async t => {
 });
 
 test('curl', async t => {
-	t.regex(await binVersion('curl'), reVersion);
+	t.regex(await binVersion('curl'), versionRegex);
 });
 
 test('npm', async t => {
-	t.regex(await binVersion('npm'), reVersion);
+	t.regex(await binVersion('npm'), versionRegex);
 });
 
 test('openssl', async t => {
-	t.regex(await binVersion('openssl'), reVersion);
+	t.regex(await binVersion('openssl'), versionRegex);
 });
 
 test('custom args', async t => {
-	t.regex(await binVersion('./fixture/versioned-type1.js', {args: ['--version']}), reVersion);
+	t.regex(await binVersion('./fixture/versioned-type1.js', {args: ['--version']}), versionRegex);
 });
 
 test('php', async t => {

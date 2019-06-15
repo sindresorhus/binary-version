@@ -7,28 +7,28 @@ const knownBinaryArguments = new Map([
 	['openssl', ['version']]
 ]);
 
-const defaultPossibleArgs = [
+const defaultPossibleArguments = [
 	['--version'],
 	['version']
 ];
 
 module.exports = async (binary, options = {}) => {
-	let possibleArgs;
+	let possibleArguments;
 
 	if (options.args === undefined) {
 		const customArgs = knownBinaryArguments.get(binary);
 		if (customArgs === undefined) {
-			possibleArgs = defaultPossibleArgs;
+			possibleArguments = defaultPossibleArguments;
 		} else {
-			possibleArgs = [customArgs];
+			possibleArguments = [customArgs];
 		}
 	} else {
-		possibleArgs = [options.args];
+		possibleArguments = [options.args];
 	}
 
-	for (const args of possibleArgs) {
+	for (const args of possibleArguments) {
 		try {
-			// TODO use execa.all when execa v2 is out
+			// TODO: Use `{all}` instead of `{stdout, stderr}` when execa v2 is out
 			const {stdout, stderr} = await execa(binary, args); // eslint-disable-line no-await-in-loop
 			const [version] = findVersions(stdout || stderr, {loose: true});
 			if (version !== undefined) {
