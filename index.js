@@ -3,8 +3,8 @@ const execa = require('execa');
 const findVersions = require('find-versions');
 
 const knownBinaryArgs = new Map([
+	...['ffmpeg', 'ffprobe', 'ffplay'].map(name => [name, ['-version']]),
 	['openssl', ['version']],
-	['ffmpeg', ['-version']]
 ]);
 
 const getKnownBinaryArgs = binary => {

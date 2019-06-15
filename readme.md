@@ -56,8 +56,6 @@ OpenSSL 1.0.2d 9 Jul 2015
 
 Returns a `Promise<string>` with the version of the `binary`.
 
-If no `args` option is specified, uses predefined argument for known binaries, or tries `['--version']` and `['version']` argumentss.
-
 #### binary
 
 Type: `string`
@@ -73,6 +71,8 @@ Type: `object`
 Type: `string[]`
 
 The arguments to pass to `binary` so that it will print its version.
+
+If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
 
 ## Related
 
