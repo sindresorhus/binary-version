@@ -33,6 +33,18 @@ OpenSSL 1.0.2d 9 Jul 2015
 
 ```js
 (async () => {
+	console.log(await binVersion('openssl'));
+	//=> '1.0.2'
+})();
+```
+
+```
+$ openssl version
+OpenSSL 1.0.2d 9 Jul 2015
+```
+
+```js
+(async () => {
 	console.log(await binVersion('openssl', {args: ['version']}));
 	//=> '1.0.2'
 })();
@@ -43,6 +55,8 @@ OpenSSL 1.0.2d 9 Jul 2015
 ### binVersion(binary, [options])
 
 Returns a `Promise<string>` with the version of the `binary`.
+
+If no `args` option is specified, uses predefined argument for known binaries, or tries `['--version']` and `['version']` argumentss.
 
 #### binary
 
@@ -57,7 +71,6 @@ Type: `object`
 ##### args
 
 Type: `string[]`
-Default: `['--version']`
 
 The arguments to pass to `binary` so that it will print its version.
 
