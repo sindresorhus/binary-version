@@ -30,7 +30,7 @@
 	],
 	"dependencies": {
 		"execa": "^1.0.0",
-		"find-versions": "^3.0.0"
+		"find-versions": "^4.0.0"
 	},
 	"devDependencies": {
 		"ava": "^2.1.0",
