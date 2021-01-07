@@ -1,5 +1,5 @@
 import test from 'ava';
-import binVersion from '.';
+import binVersion from './index.js';
 
 const versionRegex = /\d+\.\d+\.\d+/;
 

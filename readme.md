@@ -2,13 +2,11 @@
 
 > Get the version of a binary in [semver](https://github.com/npm/node-semver) format
 
-
 ## Install
 
 ```
 $ npm install bin-version
 ```
-
 
 ## Usage
 
@@ -54,7 +52,6 @@ const binVersion = require('bin-version');
 })();
 ```
 
-
 ## API
 
 ### binVersion(binary, options?)
@@ -78,7 +75,6 @@ Type: `string[]`
 The arguments to pass to `binary` so that it will print its version.
 
 If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
-
 
 ## Related
 
