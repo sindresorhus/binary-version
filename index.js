@@ -1,6 +1,5 @@
-'use strict';
-const execa = require('execa');
-const findVersions = require('find-versions');
+import execa from 'execa';
+import findVersions from 'find-versions';
 
 const oneMegabyte = 1000 * 1000;
 
@@ -18,7 +17,7 @@ const defaultPossibleArguments = [
 	['version']
 ];
 
-module.exports = async (binary, options = {}) => {
+export default async function binaryVersion(binary, options = {}) {
 	let possibleArguments;
 
 	if (options.args === undefined) {
@@ -54,4 +53,4 @@ module.exports = async (binary, options = {}) => {
 	}
 
 	throw new Error(`Couldn't find version of \`${binary}\``);
-};
+}

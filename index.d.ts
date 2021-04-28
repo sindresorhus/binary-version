@@ -1,12 +1,10 @@
-declare namespace binVersion {
-	interface Options {
-		/**
-		The arguments to pass to `binary` so that it will print its version.
+export interface Options {
+	/**
+	The arguments to pass to `binary` so that it will print its version.
 
-		If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
-		*/
-		readonly args?: readonly string[];
-	}
+	If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
+	*/
+	readonly args?: readonly string[];
 }
 
 /**
@@ -17,29 +15,22 @@ Get the version of a binary in [semver](https://github.com/npm/node-semver) form
 
 @example
 ```
-import binVersion = require('bin-version');
+import binaryVersion from 'bin-version';
 
-(async () => {
-	// $ curl --version
-	// curl 7.30.0 (x86_64-apple-darwin13.0)
+// $ curl --version
+// curl 7.30.0 (x86_64-apple-darwin13.0)
 
-	console.log(await binVersion('curl'));
-	//=> '7.30.0'
+console.log(await binaryVersion('curl'));
+//=> '7.30.0'
 
-	// $ openssl version
-	// OpenSSL 1.0.2d 9 Jul 2015
+// $ openssl version
+// OpenSSL 1.0.2d 9 Jul 2015
 
-	console.log(await binVersion('openssl'));
-	//=> '1.0.2'
+console.log(await binaryVersion('openssl'));
+//=> '1.0.2'
 
-	console.log(await binVersion('openssl', {args: ['version']}));
-	//=> '1.0.2'
-})();
+console.log(await binaryVersion('openssl', {args: ['version']}));
+//=> '1.0.2'
 ```
 */
-declare function binVersion(
-	binary: string,
-	options?: binVersion.Options
-): Promise<string>;
-
-export = binVersion;
+export default function binaryVersion(binary: string, options?: Options): Promise<string>;

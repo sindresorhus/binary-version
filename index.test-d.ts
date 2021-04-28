@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import binVersion = require('.');
+import binaryVersion from './index.js';
 
-expectType<Promise<string>>(binVersion('curl'));
-expectType<Promise<string>>(binVersion('openssl', {args: ['version']}));
+expectType<Promise<string>>(binaryVersion('curl'));
+expectType<Promise<string>>(binaryVersion('openssl', {args: ['version']}));
