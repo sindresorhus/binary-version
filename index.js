@@ -1,4 +1,4 @@
-import execa from 'execa';
+import {execa} from 'execa';
 import findVersions from 'find-versions';
 
 const oneMegabyte = 1000 * 1000;
