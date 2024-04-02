@@ -4,13 +4,13 @@
 
 ## Install
 
-```
-$ npm install bin-version
+```sh
+npm install bin-version
 ```
 
 ## Usage
 
-```
+```console
 $ curl --version
 curl 7.30.0 (x86_64-apple-darwin13.0)
 ```
@@ -22,7 +22,7 @@ console.log(await binaryVersion('curl'));
 //=> '7.30.0'
 ```
 
-```
+```console
 $ openssl version
 OpenSSL 1.0.2d 9 Jul 2015
 ```
@@ -34,7 +34,7 @@ console.log(await binaryVersion('openssl'));
 //=> '1.0.2'
 ```
 
-```
+```console
 $ openssl version
 OpenSSL 1.0.2d 9 Jul 2015
 ```

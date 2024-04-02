@@ -1,11 +1,11 @@
-export interface Options {
+export type Options = {
 	/**
 	The arguments to pass to `binary` so that it will print its version.
 
 	If not specified, predefined arguments will be used for known binaries, or `['--version']` and `['version']` arguments will be tried.
 	*/
 	readonly args?: readonly string[];
-}
+};
 
 /**
 Get the version of a binary in [semver](https://github.com/npm/node-semver) format.
