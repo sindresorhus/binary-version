@@ -3,10 +3,7 @@
 	"version": "6.0.0",
 	"description": "Get the version of a binary in semver format",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sindresorhus/bin-version.git"
-	},
+	"repository": "sindresorhus/bin-version",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
@@ -14,7 +11,11 @@
 		"url": "https://sindresorhus.com"
 	},
 	"type": "module",
-	"exports": "./index.js",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
+	"sideEffects": false,
 	"engines": {
 		"node": ">=18"
 	},
@@ -35,7 +36,7 @@
 	],
 	"dependencies": {
 		"execa": "^8.0.1",
-		"find-versions": "^5.1.0"
+		"find-versions": "^6.0.0"
 	},
 	"devDependencies": {
 		"ava": "^6.1.2",
