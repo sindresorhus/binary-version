@@ -1,11 +1,11 @@
-# bin-version
+# binary-version
 
 > Get the version of a binary in [semver](https://github.com/npm/node-semver) format
 
 ## Install
 
 ```sh
-npm install bin-version
+npm install binary-version
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ curl 7.30.0 (x86_64-apple-darwin13.0)
 ```
 
 ```js
-import binaryVersion from 'bin-version';
+import binaryVersion from 'binary-version';
 
 console.log(await binaryVersion('curl'));
 //=> '7.30.0'
@@ -28,7 +28,7 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 ```js
-import binaryVersion from 'bin-version';
+import binaryVersion from 'binary-version';
 
 console.log(await binaryVersion('openssl'));
 //=> '1.0.2'
@@ -40,7 +40,7 @@ OpenSSL 1.0.2d 9 Jul 2015
 ```
 
 ```js
-import binaryVersion from 'bin-version';
+import binaryVersion from 'binary-version';
 
 console.log(await binaryVersion('openssl', {args: ['version']}));
 //=> '1.0.2'
@@ -72,5 +72,5 @@ If not specified, predefined arguments will be used for known binaries, or `['--
 
 ## Related
 
-- [bin-version-cli](https://github.com/sindresorhus/bin-version-cli) - CLI for this module
+- [binary-version-cli](https://github.com/sindresorhus/binary-version-cli) - CLI for this module
 - [find-versions](https://github.com/sindresorhus/find-versions) - Find semver versions in a string

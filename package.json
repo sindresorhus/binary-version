@@ -1,9 +1,9 @@
 {
-	"name": "bin-version",
+	"name": "binary-version",
 	"version": "7.0.0",
 	"description": "Get the version of a binary in semver format",
 	"license": "MIT",
-	"repository": "sindresorhus/bin-version",
+	"repository": "sindresorhus/binary-version",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",

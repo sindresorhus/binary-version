@@ -15,7 +15,7 @@ Get the version of a binary in [semver](https://github.com/npm/node-semver) form
 
 @example
 ```
-import binaryVersion from 'bin-version';
+import binaryVersion from 'binary-version';
 
 // $ curl --version
 // curl 7.30.0 (x86_64-apple-darwin13.0)
