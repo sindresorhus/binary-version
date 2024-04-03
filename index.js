@@ -1,4 +1,4 @@
-import execa from 'execa';
+import {execa} from 'execa';
 import findVersions from 'find-versions';
 
 const oneMegabyte = 1000 * 1000;
@@ -7,32 +7,32 @@ const knownBinaryArguments = new Map([
 	...[
 		'ffmpeg',
 		'ffprobe',
-		'ffplay'
+		'ffplay',
 	].map(name => [name, ['-version']]),
-	['openssl', ['version']]
+	['openssl', ['version']],
 ]);
 
 const defaultPossibleArguments = [
 	['--version'],
-	['version']
+	['version'],
 ];
 
 export default async function binaryVersion(binary, options = {}) {
 	let possibleArguments;
 
 	if (options.args === undefined) {
-		const customArgs = knownBinaryArguments.get(binary);
-		possibleArguments = customArgs === undefined ? defaultPossibleArguments : [customArgs];
+		const customArguments = knownBinaryArguments.get(binary);
+		possibleArguments = customArguments === undefined ? defaultPossibleArguments : [customArguments];
 	} else {
 		possibleArguments = [options.args];
 	}
 
-	for (const args of possibleArguments) {
+	for (const arguments_ of possibleArguments) {
 		try {
 			// eslint-disable-next-line no-await-in-loop
-			const {all} = await execa(binary, args, {
+			const {all} = await execa(binary, arguments_, {
 				all: true,
-				maxBuffer: oneMegabyte
+				maxBuffer: oneMegabyte,
 			});
 
 			const [version] = findVersions(all, {loose: true});
